@@ -1,0 +1,76 @@
+Bosonic QM, Nc = 4
+Microcanonical simulation with refreshing
+Machine = Scalar processor, with 1 nodes
+Hybrid Monte Carlo algorithm
+Phi algorithm
+start: Wed Jan 11 16:51:13 2023
+
+type 0 for no prompts or 1 for prompts
+nt 4
+iseed 41
+LAYOUT = Hypercubes, options = hyper_prime
+ON EACH NODE 4
+Mallocing 0.0 MBytes per core for lattice
+Mallocing 0.0 MBytes per core for fields
+
+
+warms 0
+trajecs 3
+traj_length 1.000000e+00
+nstep 12
+traj_between_meas 3
+beta 1.000000e+00
+omega 1.000000e+00
+fresh
+forget
+unit gauge and anti-hermitian scalar configuration loaded
+CHECK NERSC LINKTR: 1.0000000000000000e+00 CKSUM: 0
+Reunitarized for double precision.  Max deviation 0 changed to 0
+Reantihermized for double precision.  Max deviation 0 changed to 0
+Time to check unitarity and anti-hermiticity = 0.0003529 seconds
+START 9
+SCALAR SQUARES 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 3.72529e-09
+eps 0.08333
+WARMUPS COMPLETED
+action: so3 0.47247846 so6 0.63138364 comm -0.58688575 Myers -0.49022084 boson 36 Umom 27.977888 Xmom 241.50624 sum 305.48412
+eps 0.08333
+action: so3 -0.061226446 so6 -1.411755e-18 comm 0.0074291802 Myers 0 boson 69.473436 Umom 15.595315 Xmom 229.02705 sum 314.0958
+REJECT: delta S = 8.612 start S = 305.484123776 end S = 314.095799943
+MONITOR_FORCE 0.5827 1.438
+SCALAR SQUARES 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 3.72529e-09
+LINES_EIG 0 0 0 0
+GMES 4 0 9 0.0625 0.0625 0.0625
+SCALAR_EIG 0 0 0 0 0
+SCALAR_EIG 1 0 0 -0 -0
+SCALAR_EIG 2 0 0 0 0
+SCALAR_EIG 3 0 0 0 0
+action: so3 -0.24515805 so6 -0.14093319 comm 0.20157996 Myers -0.42690905 boson 36 Umom 37.024728 Xmom 298.53886 sum 371.56359
+eps 0.08333
+action: so3 -0.041083326 so6 -2.0543567e-18 comm 0.058356709 Myers 0 boson 72.207226 Umom 15.361328 Xmom 293.81465 sum 381.38321
+REJECT: delta S = 9.82 start S = 371.563591018 end S = 381.383207328
+MONITOR_FORCE 0.6391 1.609
+SCALAR SQUARES 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 3.72529e-09
+LINES_EIG 0 0 0 0
+GMES 4 0 9 0.0625 0.0625 0.0625
+SCALAR_EIG 0 0 0 0 0
+SCALAR_EIG 1 0 0 -0 -0
+SCALAR_EIG 2 0 0 0 0
+SCALAR_EIG 3 0 0 0 0
+action: so3 0.88481871 so6 0.65029878 comm 2.0929667 Myers -1.8408655 boson 36 Umom 32.062721 Xmom 251.7659 sum 319.82862
+eps 0.08333
+action: so3 0.097528411 so6 1.1552331e-18 comm -0.0017053956 Myers 0 boson 69.436526 Umom 8.5137767 Xmom 250.83244 sum 328.78274
+REJECT: delta S = 8.954 start S = 319.828621076 end S = 328.782740382
+MONITOR_FORCE 0.5925 1.493
+SCALAR SQUARES 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 3.72529e-09
+LINES_EIG 0 0 0 0
+GMES 4 0 9 0.0625 0.0625 0.0625
+SCALAR_EIG 0 0 0 0 0
+SCALAR_EIG 1 0 0 -0 -0
+SCALAR_EIG 2 0 0 0 0
+SCALAR_EIG 3 0 0 0 0
+RUNNING COMPLETED
+STOP 9
+
+Time = 0.004801 seconds
+exit: Wed Jan 11 16:51:13 2023
+
