@@ -1,0 +1,11 @@
+*.2o
+*.a
+*.o
+*.out
+.nfs*
+*.sw[op]
+.DS_Store
+.lastmake*
+gmon.out
+localmake
+
