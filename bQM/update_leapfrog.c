@@ -75,8 +75,9 @@ void update_step() {
 
   // First u(t/2)
   update_u(0.5 * eps);
-
+  
   for (step = 0; step < nsteps; step++) {
+    //action();
     // Inner steps p(t) u(t)
     tr = bosonic_force(eps);
     bnorm += tr;

@@ -1,4 +1,4 @@
-Parallel code for RHMC simulations of SU(N) bosonic Yang--Mills quantum mechanics
+Parallel code for HMC simulations of SU(N) bosonic Yang--Mills quantum mechanics
 
 Top-level directories mostly follow the MILC layout:
 generic   -- Procedures common to most applications: communications, I/O, data layout, etc.

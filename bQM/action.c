@@ -26,7 +26,6 @@ double bosonic_action() {
   }
 
   // On-site piece of scalar kinetic term
-  // (Has same form as some scalar potential terms, so will re-use below)
   FORALLSITES(i, s) {
     for (j = 0; j < NSCALAR; j++)
       sqterms -= (double)realtrace_nn(&(s->X[j]), &(s->X[j]));
@@ -44,14 +43,9 @@ double bosonic_action() {
     }
     cleanup_gather(tag[j]);
   }
-  
-
-  // Scalar potential terms
-  // TODO: REPLACE WITH BQM POTENTIAL..
-  //b_action += ...;
 
   g_doublesum(&b_action);
-  return b_action;
+  return beta*b_action;
 }
 // -----------------------------------------------------------------
 
@@ -59,7 +53,7 @@ double bosonic_action() {
 
 // -----------------------------------------------------------------
 // Gauge and scalar momenta contribution to the action
-// Helper routine computes agnitude squared of an anti-hermition matrix
+// Helper routine computes magnitude squared of an anti-hermition matrix
 // including the factor of 1/2 in the effective hamiltonian
 Real ahmat_mag_sq(anti_hermitmat *ah) {
   register int i;
@@ -112,7 +106,7 @@ double action(matrix ***src, matrix ****sol) {
   double p_act, so3_act, so6_act, comm_act, Myers_act, total;
 
   // Includes so3, so6, Myers and kinetic
-  total = bosonic_action(&so3_act, &so6_act, &comm_act, &Myers_act);
+  total = bosonic_action();
   node0_printf("action: so3 %.8g so6 %.8g comm %.8g Myers %.8g boson %.8g ",
                so3_act, so6_act, comm_act, Myers_act, total);
 

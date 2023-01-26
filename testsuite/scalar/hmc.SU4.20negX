@@ -1,0 +1,127 @@
+Bosonic QM, Nc = 4
+Microcanonical simulation with refreshing
+Machine = Scalar processor, with 1 nodes
+Hybrid Monte Carlo algorithm
+Phi algorithm
+start: Thu Jan 19 12:40:07 2023
+
+type 0 for no prompts or 1 for prompts
+nt 6
+iseed 41
+LAYOUT = Hypercubes, options = hyper_prime
+ON EACH NODE 6
+Mallocing 0.1 MBytes per core for lattice
+Mallocing 0.0 MBytes per core for fields
+
+
+warms 0
+trajecs 3
+traj_length 1.000000e+00
+nstep 20
+traj_between_meas 3
+beta 1.000000e+00
+omega 1.000000e+00
+fresh
+forget
+unit gauge and anti-hermitian scalar configuration loaded
+CHECK NERSC LINKTR: 1.0000000000000000e+00 CKSUM: 0
+Reunitarized for double precision.  Max deviation 0 changed to 0
+Reantihermized for double precision.  Max deviation 0 changed to 0
+Time to check unitarity and anti-hermiticity = 0.0003228 seconds
+START -9
+SCALAR SQUARES 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 0.25 3.72529e-09
+eps 0.05
+WARMUPS COMPLETED
+action: so3 0 so6 0 comm 0 Myers 0 boson -54 Umom 43.195943 Xmom 385.40009 sum 374.59603
+eps 0.05
+action: so3 0 so6 0 comm 0 Myers 0 boson -24518.192 Umom 1197.879 Xmom 23603.006 sum 282.69314
+ACCEPT: delta S = -91.9 start S = 374.596029015 end S = 282.693135864
+MONITOR_FORCE 1.009 7.365
+SCALAR SQUARES 33.4731 34.7352 23.8732 28.9027 31.4673 27.4536 19.97 28.0161 24.2939 28.0206 11.6445
+LINES_EIG -2.441 1.64 -0.6241 0.2336
+GMES 0.27913655 -0.90908221 -4086.3653 5.5788512 5.7891938 3.9788597
+SCALAR_EIG 0 -5.87719 1.32955 -9.26782 -3.38301
+SCALAR_EIG 1 -1.62539 0.966075 -4.60659 -0.0393254
+SCALAR_EIG 2 1.94368 1.02138 -0.108999 4.28473
+SCALAR_EIG 3 5.5589 1.32152 3.49 12.8656
+action: so3 0 so6 0 comm 0 Myers 0 boson -24518.192 Umom 59.225194 Xmom 431.46706 sum -24027.499
+eps 0.05
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 0, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 1, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 2, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 3, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 4, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 5, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 6, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 7, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 0, scalar 8, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 1, scalar 0, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 1, scalar 1, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 1, scalar 2, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 1, scalar 3, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 1, scalar 4, tolerance 0.0001)
+  (0, -nan)  (-nan, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (0, -nan)  (-nan, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (0, -nan)  (-nan, -nan)
+  (nan, -nan)  (nan, -nan)  (nan, -nan)  (0, -nan)
+Anti-hermiticity problem above (node 0, site 1, scalar 5, tolerance 0.0001)
+Anti-hermiticity error count exceeded: 105
+termination: Thu Jan 19 12:40:07 2023
+
+Termination: node0, status = 1

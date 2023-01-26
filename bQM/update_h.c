@@ -16,16 +16,13 @@ double bosonic_force(Real eps) {
   double returnit = 0.0;
   matrix tmat, tmat2;
   msg_tag *tag[NSCALAR], *tag2[NSCALAR];
-#ifdef DEBUG_CHECK
+//#ifdef DEBUG_CHECK
   anti_hermitmat tah;
-#endif
+//#endif
 
-  // Clear the force collectors
-  FORALLSITES(i, s) {
+  // Clear the gauge force collectors
+  FORALLSITES(i, s)
     clear_mat(&(s->f_U));
-    for (j = 0; j < NSCALAR; j++)
-      clear_mat(&(s->f_X[j]));
-  }
 
   // First we have the finite difference operator gauge derivative
   // Must transform as site variable so momenta can be exponentiated
@@ -58,28 +55,28 @@ double bosonic_force(Real eps) {
   // Take adjoint and update the gauge momenta
   // Make them anti-hermitian
   // Include overall factor of 2
-  // !!! Another factor of 2 needed for conservation (real vs. complex?)
+  // !!! Another factor of 2 needed for conservation (real vs. complex?)...
   // Compute average gauge force in same loop
-  tr = 4.0 * eps;
+  tr = 4.0 * eps * beta; // !!!
   FORALLSITES(i, s) {
     uncompress_anti_hermitian(&(s->mom), &tmat);
     scalar_mult_dif_matrix(&(s->f_U), tr, &tmat);
     make_anti_hermitian(&tmat, &(s->mom));
-    returnit += realtrace(&(s->f_U), &(s->f_U));
+    returnit += 16.0 * realtrace(&(s->f_U), &(s->f_U));
   }
 
-  // This is the finite difference operator scalar derivative
-  //   d/dX(n) Tr[X(t) U(t) X(t+1) Udag(t) + X(t+1) Udag(t) X(t) U(t)
-  //              - X(t+1) X(t+1) - X(t) X(t)]
-  //     = 2 delta_{nt} U(t) X(t+1) Udag(t)
-  //       + 2 delta_{n(t+1)} Udag(t) X(t) U(t)
-  //       - 2 delta_{n(t+1)} X(t+1) - 2 delta_{nt} X(t)
-  //     = 2 [U(n) X(n+1) Udag(n) + Udag(n-1) X(n-1) U(n-1) - 2 X(n)]
+  // The simple pure scalar stuff:
+  //   d/dX_i(n) -(2+omega^2) X_j(t)^2 = -2(2+omega^2) X_i(n)
+  // Also the hopping term scalar derivative
+  //   d/dX(n) 2Tr[X(t) U(t) X(t+1) Udag(t)]
+  //     = 2 [delta_{nt} U(t) X(t+1) Udag(t) + delta_{n(t+1)} Udag(t) X(t) U(t)]
+  //     = 2 [U(n) X(n+1) Udag(n) + Udag(n-1) X(n-1) U(n-1)]
+  tr = -2.0 - omega * omega;
   for (j = 0; j < NSCALAR; j++) {
     wait_gather(tag2[j]);
     FORALLSITES(i, s) {
-      // Initialize force with on-site -2X(n)
-      scalar_mult_matrix(&(s->X[j]), -2.0, &(s->f_X[j]));
+      // Initialize force with on-site -(2+omega^2) X_i(n)
+      scalar_mult_matrix(&(s->X[j]), tr, &(s->f_X[j]));
 
       // Add forward hopping term using X(n+1) = gen_pt[j]
       mult_na((matrix *)(gen_pt[j][i]), &(s->link), &tmat);
@@ -88,37 +85,29 @@ double bosonic_force(Real eps) {
       // Add backward hopping term
       //   Udag(n-1) X(n-1) U(n-1) = gen_pt[NSCALAR + j]
       sum_matrix((matrix *)(gen_pt[NSCALAR + j][i]), &(s->f_X[j]));
-
-      scalar_mult_matrix(&(s->f_X[j]), 2.0, &(s->f_X[j]));
     }
     cleanup_gather(tag[j]);
     cleanup_gather(tag2[j]);
   }
 
-  // The pure scalar stuff: simple d/dX_i(n) -X_j(t)^2 = -2 X_i(n)
-  // Absorb factor of two into tr = 2 * (2 + omega^2)
-  tr = 2.0 * (2.0 + omega * omega);
-  FORALLSITES(i, s) {
-    for (j = 0; j < NSCALAR; j++)
-      scalar_mult_dif_matrix(&(s->X[j]), tr, &(s->f_X[j]));
-  }
-
   // Take adjoint and update the scalar momenta
   // Subtract to reproduce -Adj(f_X)
+  // Absorb overall factor of 2 above
   // Compute average scalar force in same loop (combine with gauge from above)
+  tr = 2.0 * eps * beta;
   FORALLSITES(i, s) {
     for (j = 0; j < NSCALAR; j++) {
-#ifdef DEBUG_CHECK
+//#ifdef DEBUG_CHECK
       // Make f_X traceless anti-hermitian, which it should be already
       make_anti_hermitian(&(s->f_X[j]), &tah);
       uncompress_anti_hermitian(&tah, &(s->f_X[j]));
-#endif
-      scalar_mult_sum_matrix(&(s->f_X[j]), eps, &(s->mom_X[j]));
-      returnit += realtrace(&(s->f_X[j]), &(s->f_X[j]));
+//#endif
+      scalar_mult_sum_matrix(&(s->f_X[j]), tr, &(s->mom_X[j]));
+      returnit += 4.0 * realtrace(&(s->f_X[j]), &(s->f_X[j]));
     }
   }
   g_doublesum(&returnit);
 
-  return (eps * sqrt(returnit) / (double)nt);
+  return (eps * beta * sqrt(returnit) / (double)nt);
 }
 // -----------------------------------------------------------------

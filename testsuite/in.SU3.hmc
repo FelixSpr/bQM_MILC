@@ -11,5 +11,5 @@ traj_between_meas 3
 beta 1
 omega 1
 
-reload_serial config.SU3.4
+fresh
 forget
